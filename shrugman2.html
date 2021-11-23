@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <! --- Title --->
+    <title>Shrugman Game</title>
+    <! --- CSS--->
+    <link rel="stylesheet" href="styles.css" />
+    <!----Bootstrap---->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="container">
+    <h1 class="top-title">The Shrugman Game</h1>
+    <p>a.k.a Squid Game</p>
+
+    <h4 class="top-right-title">You have 1 of &ThinSpace;<span id="errorsLeft">  7  </span> &ThinSpace; Guesses</h4>
+
+    <div class="d-flex justify-content-center" id="center_image"><img id="shrugman_images" src="./shrugman_images/0.png" alt="" /></div>
+    <p class='mistakes' id="wordSpotlight">The word to be guessed goes here:</p> <!--word appearence-->
+    <!-- <div id="keyboard"></div> -->
+    <h5 class="bottom-title">Guess the correct Front-End Language</h5>
+
+    <h6 class="you-live">If you guess correct: You will Live</h6>
+    <h6 class="you-die">If you guess wrong: You will Die</h6>
+    <div id="keyboard"></div> <!--keyboard on screen-->
+
+    
+</div>
+<button class="btn btn-danger" onClick="reset()">Reset Game</button>
+</div>
+    <! --- JavaScript --->
+    <script src="shrugman.js"></script>
+  </body>
+</html>

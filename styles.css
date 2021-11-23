@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 80px;
+  background: linear-gradient(to right, #00aaff, #00ff6c, rgb(76, 0, 255));
+}
+
+.top-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  font-family: "Luckiest Guy", cursive;
+}
+
+.top-right-title {
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Chivo", sans-serif;
+}
+
+.bottom-title,
+.you-live,
+.you-die,
+.buttons-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Alata", sans-serif;
+}
+.buttons {
+  padding-left: 29rem;
+}
