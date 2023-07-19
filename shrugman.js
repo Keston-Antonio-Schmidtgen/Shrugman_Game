@@ -20,7 +20,7 @@ function Buttons_A_Z() {
         `
       <button
         class="btn btn-lg btn-primary m-2"
-        id='` +
+        id='`+
         letter +
         `'
         onClick="wordOperator('` +
