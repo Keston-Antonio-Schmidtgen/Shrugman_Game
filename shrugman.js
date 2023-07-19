@@ -19,7 +19,7 @@ function Buttons_A_Z() {
       (letter) =>
         `
       <button
-        class="btn btn-lg btn-primary m-2"
+        class="btn btn-lg btn-custom-purple m-2"
         id='`+
         letter +
         `'
