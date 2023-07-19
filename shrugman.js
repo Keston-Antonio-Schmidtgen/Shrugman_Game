@@ -1,22 +1,17 @@
-//// Game Structure ////
-
-let FrontEnd_languages = ["html", "css", "javascript", "react"]; // An array of Words that will be taken randomly, when the player tries to figure out the secretWord.
-
-let secretWord = ""; // This will be a string to store the word selected randomly.
+// Game Structure
+let FrontEnd_languages = ["html", "css", "javascript", "react"];
+let secretWord = "";
 let errorsLeft = 7;
 let mistakes = 0;
-let guessLetter = []; // An Empty array that stores each letter. It will show the player each selected leter,to avoid clicking the same letter twice.
+let guessLetter = [];
 let letterStatus = null;
 
-//// Game logic ////
-
+// Game logic
 function randomWord() {
-  // This function will call a radom word to be solved
   secretWord =
     FrontEnd_languages[Math.floor(Math.random() * FrontEnd_languages.length)];
 }
 
-//// This function allows the player to select a letter via Keyboard ////
 function Buttons_A_Z() {
   let buttonsHTML = "abcdefghijklmnopqrstuvwxyz"
     .split("")
@@ -44,7 +39,6 @@ function Buttons_A_Z() {
 }
 
 function wordOperator(selectedLetter) {
-  // This function shows the current Letter the player guessed correctly
   guessLetter.indexOf(selectedLetter) === -1
     ? guessLetter.push(selectedLetter)
     : null;
@@ -62,15 +56,12 @@ function wordOperator(selectedLetter) {
   }
   document.getElementById("errorsLeft").innerHTML = errorsLeft;
 }
-//// Game Status ////
 
 function updateShrugmanImage() {
-  // This function will call a shrugman body part image for every wrong selection.
-  "./shrugman_images/" + mistakes + ".png";
+  document.getElementById("shrugman_images").src = `./shrugman_images/${mistakes}.png`;
 }
 
 function IfGameWon() {
-  // This function will determine if the player that thy have won.
   if (letterStatus === secretWord) {
     document.getElementById("keyboard").innerHTML =
       "You have Won! I guess you can live.";
@@ -78,17 +69,18 @@ function IfGameWon() {
 }
 
 function IfGameLost() {
-  // This function will determine if the player that they have lost/die.
-  if (errorsLeft == 1) {
+  if (errorsLeft === 0) {
     document.getElementById("wordSpotlight").innerHTML =
       "The secretWord was: " + secretWord;
     document.getElementById("keyboard").innerHTML =
       "You have Lost! Sorry, but you have to die.";
+    // Disable the remaining buttons if the game is lost
+    const buttons = document.querySelectorAll("#keyboard button");
+    buttons.forEach((button) => button.setAttribute("disabled", true));
   }
 }
 
 function guessLetterWord() {
-  // This function will show how many letters the player have to figure. If a letter hasn't been selected it will represent an underscore "_"
   letterStatus = secretWord
     .split("")
     .map((letter) => (guessLetter.indexOf(letter) >= 0 ? letter : " _ "))
@@ -102,10 +94,9 @@ function updateMistakes() {
 }
 
 function resetGame() {
-  // This function will reset the game.
   mistakes = 0;
   guessLetter = [];
-  document.getElementById("shrugman_images").src = "./images/0.png";
+  document.getElementById("shrugman_images").src = "./shrugman_images/0.png";
   document.getElementById("errorsLeft").innerHTML = 7;
   errorsLeft = 7;
   randomWord();
@@ -114,6 +105,7 @@ function resetGame() {
   Buttons_A_Z();
 }
 
+// Call the 'randomWord()' function to start the game.
 randomWord();
 Buttons_A_Z();
 guessLetterWord();
